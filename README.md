@@ -1,1 +1,0 @@
-# esimed-calandar-with-server
