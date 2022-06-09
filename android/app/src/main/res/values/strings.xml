@@ -40,6 +40,7 @@
     <string name="register">s\'enregistrer</string>
 
     <string name="deleteConfirm">Voulez-vous vraiment supprimer cette tâche ?</string>
+    <string name="logoutConfirm">Voulez-vous vraiment vous déconnecter ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
 
@@ -48,5 +49,10 @@
     <string name="SocketTimeoutException">La connexion au serveur n\'a pas pu aboutir, veuillez vérifier que le serveur est bien ouvert et que les paramètres sont corrects</string>
     <string name="errorServerRedColor">La connexion au serveur n\'a pas pu aboutir, veuillez vérifier que le serveur est bien ouvert, que les paramètres sont corrects et que vous êtes à porter</string>
     <string name="the_connection_failed">La connexion a échoué</string>
+
+    <string name="input_failed">Veuillez remplir tout les champs ci-dessus</string>
+
+    <string name="send_token">Bearer %s</string>
+    <string name="deconnect">Se déconnecter</string>
 
 </resources>

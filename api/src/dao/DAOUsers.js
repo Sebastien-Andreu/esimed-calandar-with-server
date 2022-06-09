@@ -4,8 +4,8 @@ const db = require('../models/db')
  * return one User with mail from the database
  * @params {string} mail - mail of User
  */
-const findByMail = async function (mail) {
-    return db.select('*').from('Users').where({mail: mail}).limit(1)
+const findByMail = async function (email) {
+    return db.select('*').from('Users').where({email: email}).limit(1)
 }
 
 /**
@@ -31,7 +31,7 @@ const findByPseudo= async function (pseudo) {
  * @params {string} password - password of user
  */
 const add = async function (mail, pseudo, password) {
-    await db.insert({mail: mail, pseudo: pseudo, password: password}).into('Users')
+    await db.insert({email: mail, pseudo: pseudo, password: password}).into('Users')
 }
 
 /**
@@ -49,8 +49,8 @@ const remove = async function (id) {
  * @params {string} pseudo - pseudo of user
  * @params {string} password - password of user
  */
-const update = async function (id, mail, pseudo, password) {
-    await db.from("Users").where({id: id}).update({mail: mail, pseudo: pseudo, password: password})
+const update = async function (id, email, pseudo, password) {
+    await db.from("Users").where({id: id}).update({email: mail, pseudo: pseudo, password: password})
 }
 
 module.exports = {

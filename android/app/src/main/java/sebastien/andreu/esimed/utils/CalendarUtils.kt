@@ -12,7 +12,7 @@ object CalendarUtils {
 
     fun formattedDate(date: LocalDate?): String {
         if (date != null) {
-            val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+            val formatter = DateTimeFormatter.ofPattern(DATE_FORMAT)
             return date.format(formatter)
         }
         return ""
@@ -20,7 +20,7 @@ object CalendarUtils {
 
     fun formattedTime(time: LocalTime?): String {
         if (time != null) {
-            val formatter = DateTimeFormatter.ofPattern("hh:mm:ss a")
+            val formatter = DateTimeFormatter.ofPattern(Time_FORMAT)
             return time.format(formatter)
         }
         return ""

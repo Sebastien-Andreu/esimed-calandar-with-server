@@ -17,5 +17,6 @@
     <color name="gray">#777777</color>
     <color name="lightGray">#F1EFEF</color>
     <color name="remove">#F44336</color>
+    <color name="lightBlue">#4D70C8E6</color>
 
 </resources>

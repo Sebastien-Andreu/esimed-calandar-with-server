@@ -3,6 +3,8 @@ package sebastien.andreu.esimed.ui.register
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,13 +26,29 @@ class RegisterActivity: AppCompatActivity() {
         viewModel.apiResponse.observe(this, {
             when (it.status) {
                 Status.SUCCESS -> {
-                    ToastUtils.success(this, "succes")
+                    ToastUtils.success(this, it.message)
+                    this.finish()
                 }
                 Status.ERROR -> {
-                    ToastUtils.error(this, "error")
+                    ToastUtils.error(this, it.message)
                 }
             }
         })
+
+
+        findViewById<Button>(R.id.buttonLogin)?.setOnClickListener {
+            findViewById<EditText>(R.id.registerLogin)?.let { pseudo ->
+                findViewById<EditText>(R.id.registerEmail)?.let { email ->
+                    findViewById<EditText>(R.id.registerPassword)?.let { password ->
+                        if (!pseudo.text.isNullOrBlank() && !email.text.isNullOrBlank() && !password.text.isNullOrBlank()) {
+                            viewModel.createAccount(this, pseudo.text.toString(), email.text.toString(), password.text.toString())
+                        } else {
+                            ToastUtils.error(this, getString(R.string.input_failed))
+                        }
+                    }
+                }
+            }
+        }
     }
 
     companion object {

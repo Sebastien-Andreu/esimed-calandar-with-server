@@ -1,7 +1,7 @@
 const express = require('express');
 const { initializeConfigMiddlewares, initializeErrorMiddlwares } = require('./middlewares');
 const authRoutes = require('../controllers/auth-routes');
-//const meetRoutes = require('../controllers/meet-routes');
+const taskRoutes = require('../controllers/task-routes');
 const path = require("path");
 
 class WebServer {
@@ -25,7 +25,7 @@ class WebServer {
 
   _initializeRoutes() {
     this.app.use(authRoutes.initializeRoutes())
-//    this.app.use('/meet', meetRoutes.initializeRoutes())
+    this.app.use('/task', taskRoutes.initializeRoutes())
   }
 }
 

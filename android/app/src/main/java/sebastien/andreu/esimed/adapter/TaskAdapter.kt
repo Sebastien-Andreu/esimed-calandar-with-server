@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import sebastien.andreu.esimed.R
+import sebastien.andreu.esimed.extension.toTime
 import sebastien.andreu.esimed.listener.OnTaskListener
 import sebastien.andreu.esimed.model.Task
 import sebastien.andreu.esimed.model.enum.TaskEnum
@@ -24,7 +25,7 @@ class TaskAdapter(
 
         getItem(position)?.let { task ->
             val eventCellTV = view!!.findViewById<TextView>(R.id.eventCellTV)
-            val eventTitle: String = task.name + " " + CalendarUtils.formattedTime(task.time)
+            val eventTitle: String = task.name + " " + CalendarUtils.formattedTime(task.time?.toTime())
             eventCellTV.text = eventTitle
 
             view.findViewById<View>(R.id.colorPreview)?.let { view ->

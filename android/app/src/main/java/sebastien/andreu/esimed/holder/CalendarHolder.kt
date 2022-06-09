@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ddd.androidutils.DoubleClick
 import com.ddd.androidutils.DoubleClickListener
 import sebastien.andreu.esimed.R
+import sebastien.andreu.esimed.extension.toDate
 import sebastien.andreu.esimed.listener.OnItemListener
 import sebastien.andreu.esimed.model.Task
 import sebastien.andreu.esimed.utils.CalendarUtils
@@ -17,7 +18,7 @@ class CalendarHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(context: Context, task: Task, position: Int, listener: OnItemListener?) {
 
-        if (task.date == CalendarUtils.selectedDate) {
+        if (task.date.toDate() == CalendarUtils.selectedDate) {
             itemView.findViewById<View>(R.id.parentView).setBackgroundColor(Color.LTGRAY)
         } else {
             itemView.findViewById<View>(R.id.parentView).setBackgroundColor(Color.WHITE)
@@ -30,8 +31,8 @@ class CalendarHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
 
         itemView.findViewById<TextView>(R.id.cellDayText)?.let { dayOfMonth ->
-            dayOfMonth.text = task.date.dayOfMonth.toString()
-            if (task.date.month == CalendarUtils.selectedDate?.month) {
+            dayOfMonth.text = task.date.toDate().dayOfMonth.toString()
+            if (task.date.toDate().month == CalendarUtils.selectedDate?.month) {
                 dayOfMonth.setTextColor(Color.BLACK)
             } else {
                 dayOfMonth.setTextColor(Color.LTGRAY)

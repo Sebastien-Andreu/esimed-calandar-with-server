@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/drawable-v24/background_logout.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/drawable-v24/background_logout_click.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/drawable-v24/button_logout.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/drawable-v24/rounded_logout.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/drawable/rounded_dialog.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/activity_home.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/app_bar_main.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/calendar_cell.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/connection_activity.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/content_main.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/create_task.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/dialog_delete.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/dialog_logout.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/inscription_activity.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/nav_header_main.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/layout/show_task.xml" value="0.3625" />
+        <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/android/app/src/main/res/menu/activity_main_drawer.xml" value="0.3625" />
         <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22708333333333333" />
         <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.21875" />
         <entry key="..\:/Users/fmgsn/Documents/esimed-calandar-with-server/app/src/main/res/drawable/background_transparent.xml" value="0.36574074074074076" />

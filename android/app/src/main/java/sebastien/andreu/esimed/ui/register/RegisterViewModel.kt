@@ -19,6 +19,8 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import com.google.gson.Gson
+
 
 @HiltViewModel
 class RegisterViewModel
@@ -35,9 +37,11 @@ class RegisterViewModel
             hostSelectionInterceptor.setConnectTimeout(15, TimeUnit.SECONDS)
             apiInjector.signup(getBody(pseudo, email, password)).let {
                 if (it.body()?.status?.equals(HttpStatusCode.OK.value) == true) {
-                    apiResponse.postValue(StatusApi.success(it.message(), it.body()))
+                    apiResponse.postValue(StatusApi.success(it.body()!!.message, it.body()))
                 } else {
-                    apiResponse.postValue(StatusApi.error(it.body()?.message.toString(), it.body()))
+                    Gson().fromJson(it.errorBody()!!.charStream(), ResponseApi::class.java)?.let { errorResponse ->
+                        apiResponse.postValue(StatusApi.error(errorResponse.message, null))
+                    }
                 }
             }
         } catch (e: UnknownHostException) {

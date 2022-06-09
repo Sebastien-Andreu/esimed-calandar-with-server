@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import sebastien.andreu.esimed.R
-import sebastien.andreu.esimed.extension.dateToString
 import sebastien.andreu.esimed.listener.ListenerDialog
 import sebastien.andreu.esimed.model.Task
+import sebastien.andreu.esimed.utils.CalendarUtils
 import sebastien.andreu.esimed.utils.ToastUtils
 import java.time.LocalDate
 import java.time.LocalTime
@@ -36,7 +36,7 @@ class DialogCreateTask: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, date!!.dateToString())
+        view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, CalendarUtils.formattedDate(date))
 
         view.findViewById<TimePicker>(R.id.timePicker)?.let { time ->
             time.setIs24HourView(true)
@@ -51,8 +51,8 @@ class DialogCreateTask: DialogFragment() {
                         listener?.onValidate(
                             Task(
                                 name = editText.text.toString(),
-                                date = date!!,
-                                time = LocalTime.of(time.hour, time.minute)
+                                date = CalendarUtils.formattedDate(date),
+                                time = CalendarUtils.formattedTime(LocalTime.of(time.hour, time.minute))
                             )
                         )
                         dismiss()

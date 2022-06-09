@@ -25,7 +25,8 @@
         <Spinner
             android:id="@+id/spinnerAllTask"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -47,6 +48,9 @@
             android:id="@+id/taskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:cursorVisible="true"
+            android:backgroundTint="@color/color_primary"
             android:hint="@string/title_of_task"/>
 
     </LinearLayout>
@@ -69,7 +73,8 @@
             android:id="@+id/spinnerProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

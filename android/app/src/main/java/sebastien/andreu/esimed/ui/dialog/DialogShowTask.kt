@@ -7,29 +7,26 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import sebastien.andreu.esimed.R
-import sebastien.andreu.esimed.extension.dateToString
 import sebastien.andreu.esimed.extension.selected
+import sebastien.andreu.esimed.extension.toDate
 import sebastien.andreu.esimed.listener.ListenerDialog
 import sebastien.andreu.esimed.listener.ListenerDialogDelete
 import sebastien.andreu.esimed.model.Task
 import sebastien.andreu.esimed.model.enum.TaskEnum
-import sebastien.andreu.esimed.utils.FINISH
-import sebastien.andreu.esimed.utils.IN_PROGRESS
-import sebastien.andreu.esimed.utils.NOT_START
-import sebastien.andreu.esimed.utils.ToastUtils
+import sebastien.andreu.esimed.utils.*
 
 class DialogShowTask: DialogFragment() {
 
     private var listener: ListenerDialog? = null
 
-    private var tasks: ArrayList<Task>? = null
+    private var tasks: ArrayList<Task> = arrayListOf()
 
     private var task: Task? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (null == this.context || null == this.activity || null == tasks) {
+        if (null == this.context || null == this.activity) {
             this.dismiss()
             return
         }
@@ -42,23 +39,23 @@ class DialogShowTask: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (tasks?.size == 1) {
+        if (tasks.size == 1) {
             view.findViewById<LinearLayout>(R.id.chooseTasks)?.visibility = View.GONE
         }
 
-        task = tasks!![0]
-        view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, task!!.date.dateToString())
+        task = tasks[0]
+        view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, task!!.date.toDate())
 
         view.findViewById<EditText>(R.id.taskName)?.let { editText ->
             editText.setText(task!!.name)
 
             view.findViewById<Spinner>(R.id.spinnerAllTask)?.let { spinner ->
-                spinner.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, tasks!!)
+                spinner.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, tasks)
 
                 spinner.selected { position ->
-                    task = tasks!![position]
+                    task = tasks[position]
                     view.findViewById<Spinner>(R.id.spinnerProgress)?.setSelection(TaskEnum.getEnumByValue(task!!.progress).value)
-                    view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, task!!.date.dateToString())
+                    view.findViewById<TextView>(R.id.title)?.text = requireContext().getString(R.string.title, task!!.date.toDate())
                     editText.setText(task!!.name)
                 }
             }
@@ -77,6 +74,7 @@ class DialogShowTask: DialogFragment() {
                 if (editText.text.toString().isNotEmpty()) {
                     listener?.onValidate(
                         Task(
+                            id = task!!.id,
                             name = editText.text.toString(),
                             date = task!!.date,
                             time = task!!.time,
@@ -99,6 +97,7 @@ class DialogShowTask: DialogFragment() {
             dialogDelete.let { dialog ->
                 dialog.setListener(object : ListenerDialogDelete {
                     override fun onDelete() {
+                        listener?.onDelete(task!!)
                         this@DialogShowTask.dismiss()
                     }
 
@@ -126,7 +125,7 @@ class DialogShowTask: DialogFragment() {
             val fragment = DialogShowTask()
 
             fragment.listener = listenerDialog
-            fragment.tasks = tasks
+            fragment.tasks.addAll(tasks)
 
             return fragment
         }

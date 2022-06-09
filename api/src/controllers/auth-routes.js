@@ -4,16 +4,17 @@ const Auth = require('../models/authentification');
 const { body, validationResult } = require('express-validator');
 
 router.post('/login',
-    body('email').exists().isEmail().withMessage('Email is require'),
+    body('pseudo').exists().withMessage('pseudo is require'),
     body('password').exists().withMessage('password is require'),
     async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ status: 400, message: errors.array() });
     }
 
     const result = await Auth.login(req.body)
-    res.status(result.status).json(result.msg)
+    console.log(result)
+    res.status(result.status).json(result)
 });
 
 router.post('/signup',
@@ -23,11 +24,12 @@ router.post('/signup',
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(400).json({ status: 400, message: errors.array() });
         }
 
         const result = await Auth.signup(req.body)
-        res.status(result.status).json(result.msg)
+        console.log(result)
+        res.status(result.status).json(result)
 
     });
 

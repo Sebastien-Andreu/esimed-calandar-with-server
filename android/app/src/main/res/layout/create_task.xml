@@ -24,6 +24,9 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:cursorVisible="true"
+            android:backgroundTint="@color/color_primary"
             android:hint="@string/title_of_task"/>
 
     </LinearLayout>
@@ -46,8 +49,7 @@
             android:id="@+id/timePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            android:clickable="false"/>
+            android:descendantFocusability="blocksDescendants"/>
 
     </LinearLayout>
 
@@ -69,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:text="@string/cancel"/>
 
@@ -81,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:text="@string/validate"/>
 

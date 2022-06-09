@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Calendar Esimed"
+            android:textColor="@color/black"
             android:gravity="center"
             android:textSize="28sp"/>
 
@@ -39,6 +40,9 @@
                 android:id="@+id/registerLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:cursorVisible="true"
+                android:backgroundTint="@color/color_primary"
                 android:ems="10"
                 android:inputType="textPersonName" />
         </LinearLayout>
@@ -63,6 +67,9 @@
                 android:id="@+id/registerPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/color_primary"
                 android:ems="10"
                 android:inputType="textPassword" />
 
@@ -97,6 +104,7 @@
                 android:id="@+id/buttonLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:text="@string/loginButton" />
         </LinearLayout>
